@@ -1,0 +1,285 @@
+// main: ../main.scss
+/*--------------------------------------------------------------
+# Hero Section
+--------------------------------------------------------------*/
+.hero {
+  padding: 120px 0 80px;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--background-color) 0%, color-mix(in srgb, var(--accent-color), transparent 95%) 100%);
+
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: -30%;
+    left: -10%;
+    width: 50%;
+    height: 100%;
+    background: radial-gradient(circle, color-mix(in srgb, var(--accent-color), transparent 92%) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 10%;
+    right: -5%;
+    width: 40%;
+    height: 80%;
+    background: radial-gradient(circle, color-mix(in srgb, var(--accent-color), transparent 94%) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 24px;
+
+      .tag-dot {
+        width: 10px;
+        height: 10px;
+        background: var(--accent-color);
+        border-radius: 50%;
+        animation: pulse 2s infinite;
+      }
+
+      .tag-text {
+        font-size: 0.875rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        color: var(--accent-color);
+      }
+    }
+
+    .hero-headline {
+      font-size: 3.5rem;
+      font-weight: 700;
+      line-height: 1.15;
+      margin-bottom: 24px;
+      color: var(--heading-color);
+
+      @media (max-width: 1200px) {
+        font-size: 3rem;
+      }
+
+      @media (max-width: 992px) {
+        font-size: 2.5rem;
+      }
+
+      @media (max-width: 576px) {
+        font-size: 2rem;
+      }
+    }
+
+    .hero-text {
+      font-size: 1.125rem;
+      line-height: 1.7;
+      color: color-mix(in srgb, var(--default-color), transparent 25%);
+      margin-bottom: 40px;
+      max-width: 520px;
+
+      @media (max-width: 768px) {
+        font-size: 1rem;
+        margin-bottom: 32px;
+      }
+    }
+
+    .hero-cta {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      flex-wrap: wrap;
+
+      @media (max-width: 576px) {
+        gap: 24px;
+      }
+
+      .cta-button {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        background: var(--accent-color);
+        color: var(--contrast-color);
+        padding: 16px 32px;
+        border-radius: 50px;
+        font-weight: 600;
+        font-size: 0.9375rem;
+        text-decoration: none;
+        transition: all 0.3s ease;
+
+        i {
+          transition: transform 0.3s ease;
+        }
+
+        &:hover {
+          background: color-mix(in srgb, var(--accent-color), black 12%);
+          transform: translateY(-2px);
+          box-shadow: 0 16px 40px color-mix(in srgb, var(--accent-color), transparent 55%);
+
+          i {
+            transform: translateX(4px);
+          }
+        }
+      }
+
+      .cta-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        color: var(--heading-color);
+        font-weight: 500;
+        text-decoration: none;
+        transition: all 0.3s ease;
+
+        i {
+          font-size: 1.5rem;
+          color: var(--accent-color);
+          transition: transform 0.3s ease;
+        }
+
+        &:hover {
+          color: var(--accent-color);
+
+          i {
+            transform: scale(1.1);
+          }
+        }
+      }
+    }
+  }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    position: relative;
+    z-index: 2;
+
+    @media (max-width: 576px) {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    .stat-card {
+      background: var(--surface-color);
+      padding: 28px 24px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      border: 1px solid color-mix(in srgb, var(--default-color), transparent 92%);
+      transition: all 0.3s ease;
+
+      &:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 20px 50px color-mix(in srgb, var(--default-color), transparent 88%);
+        border-color: color-mix(in srgb, var(--accent-color), transparent 70%);
+      }
+
+      &.stat-card-primary {
+        background: var(--accent-color);
+        border-color: var(--accent-color);
+
+        .stat-icon-wrap {
+          background: color-mix(in srgb, var(--contrast-color), transparent 80%);
+
+          i {
+            color: var(--contrast-color);
+          }
+        }
+
+        .stat-info {
+
+          .stat-value,
+          .stat-title {
+            color: var(--contrast-color);
+          }
+        }
+
+        &:hover {
+          background: color-mix(in srgb, var(--accent-color), black 10%);
+          box-shadow: 0 20px 50px color-mix(in srgb, var(--accent-color), transparent 50%);
+        }
+      }
+
+      &.stat-card-accent {
+        background: color-mix(in srgb, var(--accent-color), transparent 92%);
+        border-color: color-mix(in srgb, var(--accent-color), transparent 80%);
+
+        &:hover {
+          background: color-mix(in srgb, var(--accent-color), transparent 88%);
+        }
+      }
+
+      .stat-icon-wrap {
+        width: 56px;
+        height: 56px;
+        min-width: 56px;
+        background: color-mix(in srgb, var(--accent-color), transparent 88%);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        i {
+          font-size: 1.5rem;
+          color: var(--accent-color);
+        }
+      }
+
+      .stat-info {
+        .stat-value {
+          display: block;
+          font-size: 1.75rem;
+          font-weight: 700;
+          color: var(--heading-color);
+          line-height: 1.2;
+          margin-bottom: 4px;
+        }
+
+        .stat-title {
+          font-size: 0.875rem;
+          color: color-mix(in srgb, var(--default-color), transparent 35%);
+        }
+      }
+    }
+  }
+
+  @keyframes pulse {
+
+    0%,
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    50% {
+      opacity: 0.6;
+      transform: scale(1.2);
+    }
+  }
+
+  @media (max-width: 992px) {
+    padding: 100px 0 60px;
+
+    .hero-content {
+      text-align: center;
+      margin-bottom: 48px;
+
+      .hero-text {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero-cta {
+        justify-content: center;
+      }
+    }
+  }
+}
