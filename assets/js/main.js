@@ -113,7 +113,9 @@
   /**
    * Initiate Pure Counter
    */
-  new PureCounter();
+  if (typeof PureCounter !== 'undefined') {
+    new PureCounter();
+  }
 
   /**
    * Init swiper sliders
@@ -203,68 +205,81 @@
   }
 
   /**
-   * Init isotope layout and filters + URL Hash Filtering (Dari Footer)
-   * Mengatur filter galeri secara otomatis jika ada penanda di URL (contoh: #filter-web)
+   * Init isotope layout and filters (REVISI PENUH)
    */
   document.querySelectorAll('.isotope-layout').forEach(function(isotopeItem) {
     let layout = isotopeItem.getAttribute('data-layout') ?? 'masonry';
     let filter = isotopeItem.getAttribute('data-default-filter') ?? '*';
     let sort = isotopeItem.getAttribute('data-sort') ?? 'original-order';
-    let initIsotope;
+    let grid = isotopeItem.querySelector('.isotope-container');
 
-    imagesLoaded(isotopeItem.querySelector('.isotope-container'), function() {
-      // 1. Inisialisasi Isotope Bawaan
-      initIsotope = new Isotope(isotopeItem.querySelector('.isotope-container'), {
+    if (!grid) return;
+
+    // 1. REVISI PENTING: Eksekusi Isotope HANYA SETELAH gambar dimuat (Menghilangkan lambat/glitch)
+    imagesLoaded(grid, function() {
+      let initIsotope = new Isotope(grid, {
         itemSelector: '.isotope-item',
         layoutMode: layout,
         filter: filter,
         sortBy: sort
       });
 
-      // 2. Cek apakah ada Hash Filter dari link Footer setelah Isotope siap
-      if (window.location.hash && window.location.hash.startsWith('#filter-')) {
-        setTimeout(() => {
+      // 2. REVISI PENTING: Memaksa AOS refresh agar section lain tidak hilang saat galeri berubah
+      initIsotope.on('arrangeComplete', function() {
+        if (typeof AOS !== 'undefined') {
+          setTimeout(() => { AOS.refresh(); }, 200);
+        }
+      });
+
+      if (typeof AOS !== 'undefined') {
+        setTimeout(() => { AOS.refresh(); }, 200);
+      }
+
+      // Event Listener Tombol Filter
+      isotopeItem.querySelectorAll('.isotope-filters li').forEach(function(filterBtn) {
+        filterBtn.addEventListener('click', function(e) {
+          e.preventDefault();
+          
+          isotopeItem.querySelectorAll('.isotope-filters li').forEach(function(btn) {
+              btn.classList.remove('filter-active');
+          });
+          
+          this.classList.add('filter-active');
+          
+          initIsotope.arrange({
+              filter: this.getAttribute('data-filter')
+          });
+        });
+      });
+        
+      // Event Listener Footer (URL Hash Filter)
+      function applyHashFilter() {
+        if (window.location.hash) {
           const hash = window.location.hash; 
           const filterClass = '.' + hash.substring(1); 
-          
-          // Cari tombol yang sesuai (misal: tombol "Fasilitas")
           const targetButton = isotopeItem.querySelector(`.isotope-filters li[data-filter="${filterClass}"]`);
           
           if (targetButton) {
-            // Hapus class aktif dari tombol sebelumnya
-            isotopeItem.querySelector('.isotope-filters .filter-active').classList.remove('filter-active');
-            // Tambahkan class aktif ke tombol target
+            isotopeItem.querySelectorAll('.isotope-filters li').forEach(btn => btn.classList.remove('filter-active'));
             targetButton.classList.add('filter-active');
-            
-            // Perintahkan Isotope menyaring gambar
             initIsotope.arrange({ filter: filterClass });
             
-            // Scroll layar secara perlahan ke arah Galeri Pendidikan
             const portfolioSection = document.getElementById('portfolio');
             if (portfolioSection) {
-              const scrollMarginTop = getComputedStyle(portfolioSection).scrollMarginTop;
-              window.scrollTo({
-                top: portfolioSection.offsetTop - parseInt(scrollMarginTop),
-                behavior: 'smooth'
-              });
+              setTimeout(() => {
+                const scrollMarginTop = getComputedStyle(portfolioSection).scrollMarginTop || '90px';
+                window.scrollTo({
+                  top: portfolioSection.offsetTop - parseInt(scrollMarginTop),
+                  behavior: 'smooth'
+                });
+              }, 100);
             }
           }
-        }, 200); // Sedikit jeda agar transisi halus
-      }
-    });
-
-    // 3. Fungsi klik manual pada tab galeri
-    isotopeItem.querySelectorAll('.isotope-filters li').forEach(function(filters) {
-      filters.addEventListener('click', function() {
-        isotopeItem.querySelector('.isotope-filters .filter-active').classList.remove('filter-active');
-        this.classList.add('filter-active');
-        initIsotope.arrange({
-          filter: this.getAttribute('data-filter')
-        });
-        if (typeof aosInit === 'function') {
-          aosInit();
         }
-      }, false);
+      }
+
+      applyHashFilter();
+      window.addEventListener('hashchange', applyHashFilter);
     });
   });
 
