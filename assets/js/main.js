@@ -45,7 +45,6 @@
         mobileNavToogle();
       }
     });
-
   });
 
   /**
@@ -112,39 +111,6 @@
   });
 
   /**
-   * Init isotope layout and filters
-   */
-  document.querySelectorAll('.isotope-layout').forEach(function(isotopeItem) {
-    let layout = isotopeItem.getAttribute('data-layout') ?? 'masonry';
-    let filter = isotopeItem.getAttribute('data-default-filter') ?? '*';
-    let sort = isotopeItem.getAttribute('data-sort') ?? 'original-order';
-
-    let initIsotope;
-    imagesLoaded(isotopeItem.querySelector('.isotope-container'), function() {
-      initIsotope = new Isotope(isotopeItem.querySelector('.isotope-container'), {
-        itemSelector: '.isotope-item',
-        layoutMode: layout,
-        filter: filter,
-        sortBy: sort
-      });
-    });
-
-    isotopeItem.querySelectorAll('.isotope-filters li').forEach(function(filters) {
-      filters.addEventListener('click', function() {
-        isotopeItem.querySelector('.isotope-filters .filter-active').classList.remove('filter-active');
-        this.classList.add('filter-active');
-        initIsotope.arrange({
-          filter: this.getAttribute('data-filter')
-        });
-        if (typeof aosInit === 'function') {
-          aosInit();
-        }
-      }, false);
-    });
-
-  });
-
-  /**
    * Initiate Pure Counter
    */
   new PureCounter();
@@ -157,7 +123,6 @@
       let config = JSON.parse(
         swiperElement.querySelector(".swiper-config").innerHTML.trim()
       );
-
       if (swiperElement.classList.contains("swiper-tab")) {
         initSwiperWithCustomPagination(swiperElement, config);
       } else {
@@ -165,7 +130,6 @@
       }
     });
   }
-
   window.addEventListener("load", initSwiper);
 
   /**
@@ -173,7 +137,7 @@
    */
   window.addEventListener('load', function(e) {
     if (window.location.hash) {
-      if (document.querySelector(window.location.hash)) {
+      if (document.querySelector(window.location.hash) && !window.location.hash.includes('filter-')) {
         setTimeout(() => {
           let section = document.querySelector(window.location.hash);
           let scrollMarginTop = getComputedStyle(section).scrollMarginTop;
@@ -214,34 +178,94 @@
   const btnWhatsApp = document.getElementById('btn-whatsapp');
   if (btnWhatsApp) {
     btnWhatsApp.addEventListener('click', function(e) {
-      e.preventDefault(); // Mencegah reload halaman
+      e.preventDefault();
 
-      // Mengambil data dari inputan HTML
       let nama = document.getElementById("wa_nama").value;
       let email = document.getElementById("wa_email").value;
       let subjek = document.getElementById("wa_subjek").value;
       let pesan = document.getElementById("wa_pesan").value;
 
-      // Validasi sederhana (wajib isi nama dan pesan)
       if (nama.trim() === "" || pesan.trim() === "") {
         alert("Mohon lengkapi Nama dan Pesan Anda sebelum mengirim.");
         return;
       }
 
-      // Atur nomor WA tujuan di sini (Gunakan 62 sebagai pengganti 0)
       let nomorTujuan = "6281234567890"; 
-
-      // Format pesan teks WhatsApp
       let pesanWA = "Halo EduMalang, saya ingin menyampaikan pesan dari website:%0A%0A" +
                     "*Nama:* " + nama + "%0A" +
                     "*Email:* " + email + "%0A" +
                     "*Subjek:* " + subjek + "%0A" +
                     "*Pesan:* " + pesan;
 
-      // Buat tautan menuju WhatsApp dan buka di tab baru
       let linkWA = "https://wa.me/" + nomorTujuan + "?text=" + pesanWA;
       window.open(linkWA, "_blank");
     });
   }
+
+  /**
+   * Init isotope layout and filters + URL Hash Filtering (Dari Footer)
+   * Mengatur filter galeri secara otomatis jika ada penanda di URL (contoh: #filter-web)
+   */
+  document.querySelectorAll('.isotope-layout').forEach(function(isotopeItem) {
+    let layout = isotopeItem.getAttribute('data-layout') ?? 'masonry';
+    let filter = isotopeItem.getAttribute('data-default-filter') ?? '*';
+    let sort = isotopeItem.getAttribute('data-sort') ?? 'original-order';
+    let initIsotope;
+
+    imagesLoaded(isotopeItem.querySelector('.isotope-container'), function() {
+      // 1. Inisialisasi Isotope Bawaan
+      initIsotope = new Isotope(isotopeItem.querySelector('.isotope-container'), {
+        itemSelector: '.isotope-item',
+        layoutMode: layout,
+        filter: filter,
+        sortBy: sort
+      });
+
+      // 2. Cek apakah ada Hash Filter dari link Footer setelah Isotope siap
+      if (window.location.hash && window.location.hash.startsWith('#filter-')) {
+        setTimeout(() => {
+          const hash = window.location.hash; 
+          const filterClass = '.' + hash.substring(1); 
+          
+          // Cari tombol yang sesuai (misal: tombol "Fasilitas")
+          const targetButton = isotopeItem.querySelector(`.isotope-filters li[data-filter="${filterClass}"]`);
+          
+          if (targetButton) {
+            // Hapus class aktif dari tombol sebelumnya
+            isotopeItem.querySelector('.isotope-filters .filter-active').classList.remove('filter-active');
+            // Tambahkan class aktif ke tombol target
+            targetButton.classList.add('filter-active');
+            
+            // Perintahkan Isotope menyaring gambar
+            initIsotope.arrange({ filter: filterClass });
+            
+            // Scroll layar secara perlahan ke arah Galeri Pendidikan
+            const portfolioSection = document.getElementById('portfolio');
+            if (portfolioSection) {
+              const scrollMarginTop = getComputedStyle(portfolioSection).scrollMarginTop;
+              window.scrollTo({
+                top: portfolioSection.offsetTop - parseInt(scrollMarginTop),
+                behavior: 'smooth'
+              });
+            }
+          }
+        }, 200); // Sedikit jeda agar transisi halus
+      }
+    });
+
+    // 3. Fungsi klik manual pada tab galeri
+    isotopeItem.querySelectorAll('.isotope-filters li').forEach(function(filters) {
+      filters.addEventListener('click', function() {
+        isotopeItem.querySelector('.isotope-filters .filter-active').classList.remove('filter-active');
+        this.classList.add('filter-active');
+        initIsotope.arrange({
+          filter: this.getAttribute('data-filter')
+        });
+        if (typeof aosInit === 'function') {
+          aosInit();
+        }
+      }, false);
+    });
+  });
 
 })();
