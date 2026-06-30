@@ -7688,3 +7688,271 @@ body.portfolio-page {
   .jadwal-wrapper { padding: 30px 20px; }
   .jadwal-wrapper .table th, .jadwal-wrapper .table td { padding: 12px 15px; font-size: 14px; }
 }
+
+/* ========================================================
+   CUSTOM CSS - HALAMAN INFORMASI INSTITUSI (CREATIVE BLOCKS)
+   ======================================================== */
+
+/* --- Hero Section Minimalist Type --- */
+.institusi-hero {
+  padding: 130px 0 60px;
+  background: linear-gradient(135deg, #ffffff 0%, color-mix(in srgb, var(--accent-color), transparent 93%) 100%);
+  border-bottom: 1px solid color-mix(in srgb, var(--default-color), transparent 92%);
+}
+
+.institusi-hero .breadcrumb {
+  margin-bottom: 15px;
+}
+
+.institusi-hero h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--heading-color);
+  letter-spacing: -0.03em;
+  margin-bottom: 15px;
+}
+
+.institusi-hero p {
+  font-size: 1.15rem;
+  color: var(--default-color);
+  line-height: 1.6;
+  max-width: 650px;
+}
+
+.hero-geo-tag {
+  background: var(--surface-color);
+  padding: 24px;
+  border-radius: 16px;
+  display: inline-block;
+  text-align: left;
+  border: 1px solid color-mix(in srgb, var(--accent-color), transparent 85%);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+}
+
+@media (max-width: 991px) {
+  .institusi-hero { padding: 100px 0 40px; }
+  .institusi-hero h1 { font-size: 2.2rem; }
+  .hero-geo-tag { text-align: center; width: 100%; margin-top: 25px; }
+}
+
+/* --- Section Visi & Misi Layout Asimetris --- */
+.badge-title {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--accent-color);
+  margin-bottom: 10px;
+}
+
+.visi-card-wrapper {
+  background: linear-gradient(145deg, var(--surface-color) 0%, #f8fafc 100%);
+  padding: 45px;
+  border-radius: 24px;
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 92%);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.visi-quote-box {
+  position: relative;
+  margin-top: 25px;
+  padding-top: 25px;
+  border-top: 2px solid color-mix(in srgb, var(--accent-color), transparent 80%);
+}
+
+.visi-quote-box .quote-top {
+  font-size: 50px;
+  color: color-mix(in srgb, var(--accent-color), transparent 85%);
+  position: absolute;
+  top: -10px;
+  right: 10px;
+  line-height: 1;
+}
+
+.visi-quote-box p {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--heading-color);
+  line-height: 1.6;
+  font-style: italic;
+  position: relative;
+  z-index: 1;
+  margin: 0;
+}
+
+.misi-wrapper {
+  padding-left: 20px;
+}
+
+.misi-item {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 30px;
+  background: var(--surface-color);
+  padding: 24px;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+  border: 1px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.misi-item:last-child {
+  margin-bottom: 0;
+}
+
+.misi-item:hover {
+  border-color: color-mix(in srgb, var(--accent-color), transparent 80%);
+  transform: translateX(6px);
+}
+
+.misi-number {
+  font-size: 32px;
+  font-weight: 800;
+  color: color-mix(in srgb, var(--accent-color), transparent 70%);
+  font-family: var(--heading-font);
+  line-height: 1;
+}
+
+.misi-text h5 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: var(--heading-color);
+}
+
+.misi-text p {
+  font-size: 14px;
+  color: var(--default-color);
+  line-height: 1.6;
+  margin: 0;
+}
+
+@media (max-width: 991px) {
+  .misi-wrapper { padding-left: 0; margin-top: 15px; }
+  .visi-card-wrapper { padding: 30px 20px; }
+  .visi-quote-box p { font-size: 17px; }
+}
+
+/* --- Budaya Kerja (Mismatched Border Shapes) --- */
+.value-card {
+  background: var(--surface-color);
+  padding: 40px 30px;
+  height: 100%;
+  box-shadow: 0 5px 25px rgba(0,0,0,0.04);
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 93%);
+  transition: all 0.4s ease;
+}
+
+/* Penataan Sudut Tepi yang Acak/Tidak Monoton */
+.border-shape-1 { border-radius: 40px 0 40px 0; }
+.border-shape-2 { border-radius: 0 40px 0 40px; }
+.border-shape-3 { border-radius: 40px 40px 0 0; }
+
+.value-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 12px 35px rgba(0,0,0,0.08);
+}
+
+.value-card .value-badge-icon {
+  width: 55px;
+  height: 55px;
+  background: color-mix(in srgb, var(--accent-color), transparent 90%);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.value-card .value-badge-icon i {
+  font-size: 24px;
+  color: var(--accent-color);
+}
+
+.value-card h4 {
+  font-size: 19px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: var(--heading-color);
+}
+
+.value-card p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--default-color);
+  margin: 0;
+}
+
+.value-card.featured-value {
+  background: linear-gradient(135deg, var(--accent-color) 0%, color-mix(in srgb, var(--accent-color), black 12%) 100%);
+  border-color: var(--accent-color);
+}
+.value-card.featured-value h4, .value-card.featured-value p, .value-card.featured-value .value-badge-icon i {
+  color: var(--contrast-color);
+}
+.value-card.featured-value .value-badge-icon {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* --- Metrik Mutu & Info Box --- */
+.stats-info-box {
+  background: var(--surface-color);
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 93%);
+}
+
+.progress-block .progress {
+  background-color: color-mix(in srgb, var(--default-color), transparent 92%);
+  border-radius: 50px;
+}
+.progress-block .progress-bar {
+  border-radius: 50px;
+}
+
+/* ========================================================
+   WA BUTTON MELAYANG (FLOATING BUTTON)
+   ======================================================== */
+.wa-float {
+  position: fixed;
+  width: 40px;
+  height: 40px;
+  /* bottom ditingkatkan agar berada di atas tombol scroll-top (15px + 40px + 10px jarak) */
+  bottom: 65px; 
+  right: 15px;
+  background-color: #25d366;
+  color: #FFF;
+  border-radius: 4px;
+  text-align: center;
+  font-size: 20px;
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.wa-float:hover {
+  background-color: #128c7e;
+  color: #FFF;
+  transform: scale(1.1);
+}
+
+/* Memastikan scroll-top tetap di bawah */
+.scroll-top {
+  right: 15px;
+  bottom: 15px;
+}
+
+/* Menonaktifkan tautan pada footer bottom */
+.footer .footer-bottom .legal-links a.disabled-link {
+  pointer-events: none; /* Mematikan fungsi klik dan hover */
+  cursor: default; /* Kursor tetap berbentuk panah biasa, bukan tangan */
+  color: color-mix(in srgb, var(--default-color), transparent 30%) !important; /* Mengunci warna asli */
+}
