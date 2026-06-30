@@ -7094,3 +7094,597 @@ body.portfolio-page {
   font-weight: 600;
   text-transform: uppercase;
 }
+
+/* ========================================================
+   CUSTOM CSS - HALAMAN TOKOH EDUKASI (ORBIT THEME)
+   ======================================================== */
+
+/* --- Hero Section Tokoh Edukasi --- */
+.tokoh-hero {
+  padding: 160px 0 100px;
+  background: linear-gradient(135deg, var(--surface-color) 0%, color-mix(in srgb, var(--accent-color), transparent 90%) 100%);
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid color-mix(in srgb, var(--accent-color), transparent 90%);
+}
+
+.tokoh-hero::before {
+  content: '';
+  position: absolute;
+  top: -50px;
+  right: -50px;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  background: radial-gradient(circle, color-mix(in srgb, var(--accent-color), transparent 85%) 0%, transparent 70%);
+  z-index: 0;
+  animation: pulseBlob 8s infinite alternate;
+}
+
+.tokoh-hero .container {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+.tokoh-hero .hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 20px;
+  background-color: var(--accent-color);
+  color: var(--contrast-color);
+  border-radius: 50px;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 15px color-mix(in srgb, var(--accent-color), transparent 60%);
+}
+
+.tokoh-hero h1 {
+  font-size: 3.2rem;
+  font-weight: 800;
+  color: var(--heading-color);
+  margin-bottom: 20px;
+}
+
+.tokoh-hero p {
+  font-size: 1.15rem;
+  color: var(--default-color);
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+@media (max-width: 768px) {
+  .tokoh-hero { padding: 120px 0 60px; }
+  .tokoh-hero h1 { font-size: 2.2rem; }
+}
+
+/* --- Wrapper untuk Section Tokoh Utama (Bawaan Index) --- */
+.tokoh-utama-wrapper {
+  background-color: var(--background-color);
+  padding: 80px 0;
+}
+
+/* --- Section: Pengajar Inspiratif (Layout Zig-Zag) --- */
+.inspirator-section {
+  background-color: var(--surface-color);
+  padding: 100px 0;
+  border-top: 1px solid color-mix(in srgb, var(--default-color), transparent 92%);
+}
+
+.inspirator-card {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  margin-bottom: 60px;
+  background: var(--background-color);
+  border-radius: 20px;
+  padding: 30px;
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 92%);
+  transition: all 0.4s ease;
+}
+
+.inspirator-card:last-child {
+  margin-bottom: 0;
+}
+
+.inspirator-card:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+.inspirator-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px color-mix(in srgb, var(--accent-color), transparent 90%);
+  border-color: color-mix(in srgb, var(--accent-color), transparent 70%);
+}
+
+.inspirator-img {
+  flex: 0 0 300px;
+  height: 300px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 8px solid var(--surface-color);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  position: relative;
+}
+
+.inspirator-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.inspirator-card:hover .inspirator-img img {
+  transform: scale(1.08);
+}
+
+.inspirator-content {
+  flex: 1;
+}
+
+.inspirator-content .subject-tag {
+  display: inline-block;
+  padding: 5px 15px;
+  background: color-mix(in srgb, var(--accent-color), transparent 90%);
+  color: var(--accent-color);
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+}
+
+.inspirator-content h3 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--heading-color);
+  margin-bottom: 10px;
+}
+
+.inspirator-content .title {
+  display: block;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--default-color);
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid color-mix(in srgb, var(--default-color), transparent 85%);
+}
+
+.inspirator-content p {
+  color: color-mix(in srgb, var(--default-color), transparent 20%);
+  line-height: 1.8;
+  margin-bottom: 0;
+}
+
+@media (max-width: 991px) {
+  .inspirator-card, .inspirator-card:nth-child(even) {
+    flex-direction: column;
+    text-align: center;
+    padding: 30px 20px;
+  }
+  .inspirator-img {
+    flex: 0 0 250px;
+    height: 250px;
+  }
+}
+
+/* --- Section: Pesan Inspiratif (Quotes Grid) --- */
+.quotes-section {
+  background: linear-gradient(180deg, var(--surface-color) 0%, color-mix(in srgb, var(--accent-color), transparent 95%) 100%);
+  padding: 100px 0;
+}
+
+.quote-box {
+  background: var(--surface-color);
+  padding: 40px 30px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+  height: 100%;
+  position: relative;
+  transition: all 0.3s ease;
+  border-top: 4px solid transparent;
+}
+
+.quote-box:hover {
+  transform: translateY(-8px);
+  border-top-color: var(--accent-color);
+  box-shadow: 0 15px 40px rgba(14, 165, 233, 0.1);
+}
+
+.quote-box .quote-icon {
+  font-size: 40px;
+  color: color-mix(in srgb, var(--accent-color), transparent 80%);
+  position: absolute;
+  top: 20px;
+  right: 30px;
+}
+
+.quote-box p.quote-text {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--heading-color);
+  font-style: italic;
+  margin-bottom: 25px;
+  position: relative;
+  z-index: 1;
+}
+
+.quote-box .quote-author {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  border-top: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+  padding-top: 20px;
+}
+
+.quote-box .quote-author img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.quote-box .quote-author .author-info h6 {
+  margin: 0 0 4px 0;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--heading-color);
+}
+
+.quote-box .quote-author .author-info span {
+  font-size: 0.85rem;
+  color: var(--default-color);
+}
+
+/* ========================================================
+   CUSTOM CSS - HALAMAN PPDB (PENERIMAAN SISWA BARU)
+   ======================================================== */
+
+/* --- Hero Section PPDB --- */
+.ppdb-hero {
+  padding: 140px 0 80px;
+  background: linear-gradient(135deg, rgba(241, 245, 249, 0.95) 0%, rgba(224, 242, 254, 0.95) 100%), 
+              url('../img/hero/gedung-sekolah.webp') center center / cover no-repeat;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid color-mix(in srgb, var(--accent-color), transparent 85%);
+}
+
+.ppdb-hero .hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 20px;
+  background-color: color-mix(in srgb, var(--accent-color), transparent 90%);
+  color: var(--accent-color);
+  border-radius: 50px;
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 24px;
+}
+
+.ppdb-hero h1 {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: var(--heading-color);
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+.ppdb-hero p {
+  font-size: 1.2rem;
+  color: var(--default-color);
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+@media (max-width: 768px) {
+  .ppdb-hero { padding: 100px 0 60px; }
+  .ppdb-hero h1 { font-size: 2.2rem; }
+  .ppdb-hero p { font-size: 1rem; }
+}
+
+/* --- Jalur Pendaftaran (Grid Cards) --- */
+.path-card {
+  background: var(--surface-color);
+  padding: 40px 30px;
+  border-radius: 16px;
+  box-shadow: 0 5px 30px rgba(0,0,0,0.05);
+  text-align: center;
+  height: 100%;
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 92%);
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
+  overflow: hidden;
+}
+
+.path-card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; height: 4px;
+  background: var(--accent-color);
+  transform: scaleX(0);
+  transition: transform 0.4s ease;
+}
+
+.path-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 40px color-mix(in srgb, var(--accent-color), transparent 90%);
+}
+
+.path-card:hover::before {
+  transform: scaleX(1);
+}
+
+.path-card.featured-path {
+  background: var(--accent-color);
+  border-color: var(--accent-color);
+}
+
+.path-card.featured-path h3, 
+.path-card.featured-path p, 
+.path-card.featured-path .quota, 
+.path-card.featured-path .path-icon i {
+  color: var(--contrast-color);
+}
+
+.path-card.featured-path .path-icon {
+  background: color-mix(in srgb, var(--contrast-color), transparent 85%);
+}
+
+.path-card .path-icon {
+  width: 70px;
+  height: 70px;
+  background: color-mix(in srgb, var(--accent-color), transparent 90%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 24px;
+  transition: all 0.3s ease;
+}
+
+.path-card .path-icon i {
+  font-size: 32px;
+  color: var(--accent-color);
+}
+
+.path-card h3 {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.path-card .quota {
+  display: inline-block;
+  padding: 4px 12px;
+  background: color-mix(in srgb, var(--default-color), transparent 90%);
+  border-radius: 6px;
+  font-size: 13px;
+  margin-bottom: 15px;
+}
+.path-card.featured-path .quota {
+  background: color-mix(in srgb, var(--contrast-color), transparent 85%);
+}
+
+.path-card p {
+  color: color-mix(in srgb, var(--default-color), transparent 30%);
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* --- Persyaratan Umum (Split Layout) --- */
+.syarat-img-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.syarat-img-wrapper .floating-info {
+  position: absolute;
+  bottom: -20px;
+  right: -20px;
+  background: var(--surface-color);
+  padding: 15px 20px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-left: 4px solid var(--accent-color);
+  max-width: 250px;
+}
+
+.syarat-img-wrapper .floating-info i {
+  font-size: 24px;
+  color: var(--accent-color);
+}
+.syarat-img-wrapper .floating-info span {
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+@media (max-width: 991px) {
+  .syarat-img-wrapper .floating-info {
+    right: 20px;
+    bottom: 20px;
+  }
+}
+
+.syarat-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.syarat-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px dashed color-mix(in srgb, var(--default-color), transparent 85%);
+}
+
+.syarat-list li:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.syarat-list li i {
+  font-size: 28px;
+  color: var(--accent-color);
+  line-height: 1;
+}
+
+.syarat-list li strong {
+  display: block;
+  font-size: 18px;
+  color: var(--heading-color);
+  margin-bottom: 4px;
+}
+
+.syarat-list li span {
+  font-size: 14px;
+  color: color-mix(in srgb, var(--default-color), transparent 30%);
+}
+
+/* --- Alur Pendaftaran (Vertical Timeline) --- */
+.timeline-vertical {
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.timeline-vertical::before {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0; left: 40px;
+  width: 2px;
+  background: color-mix(in srgb, var(--accent-color), transparent 70%);
+}
+
+.timeline-item {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+.timeline-item:last-child {
+  margin-bottom: 0;
+}
+
+.timeline-icon {
+  width: 80px;
+  height: 80px;
+  background: var(--surface-color);
+  border: 2px solid var(--accent-color);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  flex-shrink: 0;
+  box-shadow: 0 4px 15px color-mix(in srgb, var(--accent-color), transparent 85%);
+}
+
+.timeline-icon i {
+  font-size: 32px;
+  color: var(--accent-color);
+}
+
+.timeline-content {
+  background: var(--surface-color);
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 5px 25px rgba(0,0,0,0.04);
+  flex-grow: 1;
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 94%);
+  transition: transform 0.3s ease;
+}
+
+.timeline-content:hover {
+  transform: translateX(10px);
+  border-color: color-mix(in srgb, var(--accent-color), transparent 70%);
+}
+
+.timeline-content h4 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: var(--heading-color);
+}
+
+.timeline-content p {
+  margin: 0;
+  font-size: 15px;
+  color: var(--default-color);
+  line-height: 1.6;
+}
+
+@media (max-width: 576px) {
+  .timeline-vertical::before { left: 25px; }
+  .timeline-icon { width: 50px; height: 50px; }
+  .timeline-icon i { font-size: 20px; }
+  .timeline-item { gap: 15px; margin-bottom: 30px;}
+  .timeline-content { padding: 20px; }
+  .timeline-content h4 { font-size: 18px; }
+}
+
+/* --- Jadwal Penting (Modern Table) --- */
+.jadwal-wrapper {
+  background: linear-gradient(135deg, var(--accent-color) 0%, color-mix(in srgb, var(--accent-color), #0ea5e9 40%) 100%);
+  padding: 50px;
+  border-radius: 24px;
+  box-shadow: 0 20px 50px color-mix(in srgb, var(--accent-color), transparent 70%);
+}
+
+.jadwal-wrapper .table {
+  background: var(--surface-color);
+  border-radius: 16px;
+  overflow: hidden;
+  margin-top: 20px;
+}
+
+.jadwal-wrapper .table thead {
+  background: color-mix(in srgb, var(--default-color), transparent 95%);
+}
+
+.jadwal-wrapper .table th {
+  padding: 18px 24px;
+  font-weight: 700;
+  color: var(--heading-color);
+  font-size: 16px;
+}
+
+.jadwal-wrapper .table td {
+  padding: 16px 24px;
+  vertical-align: middle;
+  color: var(--default-color);
+  font-size: 15px;
+  border-bottom: 1px solid color-mix(in srgb, var(--default-color), transparent 92%);
+}
+
+.jadwal-wrapper .table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.jadwal-wrapper .table tbody tr:hover td {
+  background: color-mix(in srgb, var(--accent-color), transparent 96%);
+}
+
+@media (max-width: 768px) {
+  .jadwal-wrapper { padding: 30px 20px; }
+  .jadwal-wrapper .table th, .jadwal-wrapper .table td { padding: 12px 15px; font-size: 14px; }
+}
