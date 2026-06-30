@@ -26,7 +26,6 @@
 
 <body class="portfolio-page">
 
-  <!-- Header / Navbar -->
   <header id="header" class="header d-flex align-items-center sticky-top">
     <div class="container position-relative d-flex align-items-center justify-content-between">
       <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
@@ -39,27 +38,24 @@
           <li><a href="index.html#about">Tentang</a></li>
           <li><a href="index.html#services">Program</a></li>
           <li><a href="galeri.html" class="active">Galeri</a></li>
-          <li><a href="index.html#team">Tokoh Edukasi</a></li>
+          <li><a href="tokoh.html">Tokoh Edukasi</a></li>
           <li class="dropdown"><a href="#"><span>Jenjang Pendidikan</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
             <ul>
-              <li><a href="#">SD / Sederajat</a></li>
-              <li class="dropdown"><a href="#"><span>SMP & SMA</span></a></li>
-              <li><a href="#">Perguruan Tinggi</a></li>
-              <li><a href="#">Pendidikan Khusus (SLB)</a></li>
+              <li><a href="pendaftaran.html" >Pendaftaran Siswa Baru</a></li>
+              <li class="dropdown"><a href="informasi.html"><span>Informasi Institusi</span></a>
+              </li>
             </ul>
           </li>
-          <li><a href="index.html#contact">Kontak</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
 
-      <a class="btn-getstarted" href="index.html#contact">Mulai Belajar</a>
+      <a class="btn-getstarted" href="index.html#contact">Kontak</a>
     </div>
   </header>
 
   <main class="main">
 
-    <!-- Hero Dinamis -->
     <section class="hero-dynamic">
       <div class="container" data-aos="zoom-in" data-aos-duration="1000">
         <h1>Momen Edukasi Malang</h1>
@@ -67,11 +63,297 @@
       </div>
     </section>
 
-    <!-- Overlapping Layout Section (Fasilitas) -->
+    <section id="portfolio" class="portfolio section">
+
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Galeri Pendidikan</h2>
+        <!-- <p>Dokumentasi aktivitas, prestasi, dan fasilitas pendidikan unggulan di Kota Malang</p> -->
+      </div>
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="isotope-layout" data-default-filter="*" data-layout="fitRows" data-sort="original-order">
+
+          <div class="filters-wrapper" data-aos="fade-up" data-aos-delay="100">
+            <ul class="portfolio-filters isotope-filters">
+              <li data-filter="*" class="filter-active">Semua Galeri</li>
+              <li data-filter=".filter-web">Fasilitas</li>
+              <li data-filter=".filter-mobile">Kegiatan Siswa</li>
+              <li data-filter=".filter-branding">Prestasi</li>
+              <li data-filter=".filter-ui">Ekstrakurikuler</li>
+            </ul>
+          </div>
+
+          <div class="row g-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-web">
+              <div class="project-card">
+                <div class="image-wrapper">
+                  <img src="assets/img/portfolio/perpus-digital.webp" alt="Project showcase" class="img-fluid" loading="lazy">
+                  <div class="hover-overlay">
+                    <div class="overlay-actions">
+                      <a href="assets/img/portfolio/perpus-digital.webp" class="glightbox action-btn" data-gallery="portfolio">
+                        <i class="bi bi-eye"></i>
+                      </a>
+                      <a href="perpus-digital.html" class="action-btn">
+                        <i class="bi bi-link-45deg"></i>
+                      </a>
+                    </div>
+                  </div>
+                  <span class="category-badge">Fasilitas</span>
+                </div>
+                <div class="project-info">
+                  <h3>Perpustakaan Digital Terpadu</h3>
+                  <p>Fasilitas literasi modern untuk menunjang minat baca siswa.</p>
+                  <div class="project-meta">
+                    <div class="tech-tags">
+                      <span>Literasi</span>
+                      <span>Teknologi</span>
+                    </div>
+                    <span class="year">2024</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-mobile">
+              <div class="project-card featured">
+                <div class="image-wrapper">
+                  <img src="assets/img/portfolio/sains.webp" alt="Project showcase" class="img-fluid" loading="lazy">
+                  <div class="hover-overlay">
+                    <div class="overlay-actions">
+                      <a href="assets/img/portfolio/sains.webp" class="glightbox action-btn" data-gallery="portfolio">
+                        <i class="bi bi-eye"></i>
+                      </a>
+                      <a href="pameran-sains.html" class="action-btn">
+                        <i class="bi bi-link-45deg"></i>
+                      </a>
+                    </div>
+                  </div>
+                  <span class="category-badge">Kegiatan Siswa</span>
+                  <span class="featured-badge"><i class="bi bi-star-fill"></i> Unggulan</span>
+                </div>
+                <div class="project-info">
+                  <h3>Pameran Sains Pelajar</h3>
+                  <p>Unjuk karya dan inovasi sains siswa-siswi tingkat SMA se-Kota Malang.</p>
+                  <div class="project-meta">
+                    <div class="tech-tags">
+                      <span>Sains</span>
+                      <span>Inovasi</span>
+                    </div>
+                    <span class="year">2024</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
+              <div class="project-card">
+                <div class="image-wrapper">
+                  <img src="assets/img/portfolio/olim-matematika.webp" alt="Project showcase" class="img-fluid" loading="lazy">
+                  <div class="hover-overlay">
+                    <div class="overlay-actions">
+                      <a href="assets/img/portfolio/olim-matematika.webp" class="glightbox action-btn" data-gallery="portfolio">
+                        <i class="bi bi-eye"></i>
+                      </a>
+                      <a href="olim-matematika.html" class="action-btn">
+                        <i class="bi bi-link-45deg"></i>
+                      </a>
+                    </div>
+                  </div>
+                  <span class="category-badge">Prestasi</span>
+                </div>
+                <div class="project-info">
+                  <h3>Olimpiade Matematika Nasional</h3>
+                  <p>Kontingen Kota Malang meraih juara umum pada kompetisi akademik bergengsi.</p>
+                  <div class="project-meta">
+                    <div class="tech-tags">
+                      <span>Akademik</span>
+                      <span>Penghargaan</span>
+                    </div>
+                    <span class="year">2023</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-ui">
+              <div class="project-card">
+                <div class="image-wrapper">
+                  <img src="assets/img/portfolio/ekskul-tari.webp" alt="Project showcase" class="img-fluid" loading="lazy">
+                  <div class="hover-overlay">
+                    <div class="overlay-actions">
+                      <a href="assets/img/portfolio/ekskul-tari.webp" class="glightbox action-btn" data-gallery="portfolio">
+                        <i class="bi bi-eye"></i>
+                      </a>
+                      <a href="ekskul-tari.html" class="action-btn">
+                        <i class="bi bi-link-45deg"></i>
+                      </a>
+                    </div>
+                  </div>
+                  <span class="category-badge">Ekstrakurikuler</span>
+                </div>
+                <div class="project-info">
+                  <h3>Festival Seni Tari Daerah</h3>
+                  <p>Pelestarian budaya melalui ekstrakurikuler seni tari di sekolah menengah.</p>
+                  <div class="project-meta">
+                    <div class="tech-tags">
+                      <span>Seni</span>
+                      <span>Budaya</span>
+                    </div>
+                    <span class="year">2024</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-web">
+              <div class="project-card">
+                <div class="image-wrapper">
+                  <img src="assets/img/portfolio/lab-komputer.webp" alt="Project showcase" class="img-fluid" loading="lazy">
+                  <div class="hover-overlay">
+                    <div class="overlay-actions">
+                      <a href="assets/img/portfolio/lab-komputer.webp" class="glightbox action-btn" data-gallery="portfolio">
+                        <i class="bi bi-eye"></i>
+                      </a>
+                      <a href="lab-komputer.html" class="action-btn">
+                        <i class="bi bi-link-45deg"></i>
+                      </a>
+                    </div>
+                  </div>
+                  <span class="category-badge">Fasilitas</span>
+                </div>
+                <div class="project-info">
+                  <h3>Laboratorium Komputer Modern</h3>
+                  <p>Penyediaan perangkat terkini untuk mendukung mata pelajaran informatika.</p>
+                  <div class="project-meta">
+                    <div class="tech-tags">
+                      <span>Praktikum</span>
+                      <span>Komputer</span>
+                    </div>
+                    <span class="year">2023</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-mobile">
+              <div class="project-card">
+                <div class="image-wrapper">
+                  <img src="assets/img/portfolio/kampanye-lingkungan.webp" alt="Project showcase" class="img-fluid" loading="lazy">
+                  <div class="hover-overlay">
+                    <div class="overlay-actions">
+                      <a href="assets/img/portfolio/kampanye-lingkungan.webp" class="glightbox action-btn" data-gallery="portfolio">
+                        <i class="bi bi-eye"></i>
+                      </a>
+                      <a href="kampanye-lingkungan.html" class="action-btn">
+                        <i class="bi bi-link-45deg"></i>
+                      </a>
+                    </div>
+                  </div>
+                  <span class="category-badge">Kegiatan Siswa</span>
+                </div>
+                <div class="project-info">
+                  <h3>Kampanye Lingkungan Sehat</h3>
+                  <p>Edukasi pengelolaan sampah dan penghijauan lingkungan oleh pelajar.</p>
+                  <div class="project-meta">
+                    <div class="tech-tags">
+                      <span>Sosial</span>
+                      <span>Edukasi</span>
+                    </div>
+                    <span class="year">2024</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-ui">
+              <div class="project-card featured">
+                <div class="image-wrapper">
+                  <img src="assets/img/portfolio/robotika.webp" alt="Project showcase" class="img-fluid" loading="lazy">
+                  <div class="hover-overlay">
+                    <div class="overlay-actions">
+                      <a href="assets/img/portfolio/robotika.webp" class="glightbox action-btn" data-gallery="portfolio">
+                        <i class="bi bi-eye"></i>
+                      </a>
+                      <a href="robotika.html" class="action-btn">
+                        <i class="bi bi-link-45deg"></i>
+                      </a>
+                    </div>
+                  </div>
+                  <span class="category-badge">Ekstrakurikuler</span>
+                  <span class="featured-badge"><i class="bi bi-star-fill"></i> Unggulan</span>
+                </div>
+                <div class="project-info">
+                  <h3>Klub Robotika Pelajar</h3>
+                  <p>Membina bakat-bakat muda dalam merancang dan memprogram robot cerdas.</p>
+                  <div class="project-meta">
+                    <div class="tech-tags">
+                      <span>Robotika</span>
+                      <span>IoT</span>
+                    </div>
+                    <span class="year">2024</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
+              <div class="project-card">
+                <div class="image-wrapper">
+                  <img src="assets/img/portfolio/penghargaan.webp" alt="Project showcase" class="img-fluid" loading="lazy">
+                  <div class="hover-overlay">
+                    <div class="overlay-actions">
+                      <a href="assets/img/portfolio/penghargaan.webp" class="glightbox action-btn" data-gallery="portfolio">
+                        <i class="bi bi-eye"></i>
+                      </a>
+                      <a href="penghargaan.html" class="action-btn">
+                        <i class="bi bi-link-45deg"></i>
+                      </a>
+                    </div>
+                  </div>
+                  <span class="category-badge">Prestasi</span>
+                </div>
+                <div class="project-info">
+                  <h3>Penghargaan Adiwiyata Mandiri</h3>
+                  <p>Apresiasi tertinggi untuk sekolah berwawasan lingkungan dan berkelanjutan.</p>
+                  <div class="project-meta">
+                    <div class="tech-tags">
+                      <span>Adiwiyata</span>
+                      <span>Lingkungan</span>
+                    </div>
+                    <span class="year">2023</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+
+        <div class="cta-section" data-aos="zoom-in" data-aos-delay="300">
+          <div class="cta-content">
+            <span class="cta-label"><i class="bi bi-lightning-charge-fill"></i> Siap Berprestasi?</span>
+            <h3>Mari Bersama Membangun Pendidikan yang Lebih Baik</h3>
+            <p>Jadilah bagian dari ekosistem pendidikan terbaik di Jawa Timur. Dukung terus program-program pengembangan karakter dan akademik demi generasi masa depan.</p>
+            <div class="cta-buttons">
+              <a href="https://wa.me/112" class="btn-cta-primary" target="_blank">Hubungi Layanan Kami <i class="bi bi-arrow-right"></i></a>
+              <a href="program.html" class="btn-cta-secondary"> Lihat Program</a>
+            </div>
+          </div>
+          <div class="cta-decoration">
+            <div class="floating-shape shape-1"></div>
+            <div class="floating-shape shape-2"></div>
+            <div class="floating-shape shape-3"></div>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
     <section class="overlap-section">
       <div class="container">
 
-        <!-- Item 1: Gambar geser kiri, Konten geser kanan -->
         <div class="overlap-group">
           <div class="overlap-img" data-aos="fade-right" data-aos-duration="1200">
             <img src="assets/img/portfolio/lab-komputer.webp" alt="Fasilitas Lab">
@@ -83,7 +365,6 @@
           </div>
         </div>
 
-        <!-- Item 2: Reverse (Gambar geser kanan, Konten geser kiri) -->
         <div class="overlap-group reverse">
           <div class="overlap-img" data-aos="fade-left" data-aos-duration="1200">
             <img src="assets/img/portfolio/perpus-digital.webp" alt="E-Library">
@@ -98,84 +379,79 @@
       </div>
     </section>
 
-<!-- Section: Karya & Ekstrakurikuler -->
-<section class="gallery-grid-section section">
-  <div class="container">
+    <section class="gallery-grid-section section">
+      <div class="container">
 
-    <div class="section-title text-center" data-aos="fade-up">
-      <h2>Karya & Ekstrakurikuler</h2>
-      <p>Dokumentasi pengembangan bakat dan inovasi siswa</p>
-    </div>
-
-    <div class="isotope-layout" data-default-filter="*" data-layout="fitRows" data-sort="original-order" data-aos="fade-up" data-aos-delay="100">
-      
-      <ul class="portfolio-filters isotope-filters filter-pills justify-content-center mb-5">
-        <li data-filter="*" class="filter-active">Tampilkan Semua</li>
-        <li data-filter=".filter-sains">Sains & Tech</li>
-        <li data-filter=".filter-seni">Seni & Olahraga</li>
-      </ul>
-
-      <div class="row g-4 isotope-container">
-        
-        <!-- Kartu 1 -->
-        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-sains">
-          <div class="elegant-card">
-            <div class="img-box">
-              <a href="assets/img/portfolio/robotika.webp" class="glightbox">
-                <img src="assets/img/portfolio/robotika.webp" alt="Robotika">
-              </a>
-              <div class="overlay-badge">Inovasi</div>
-            </div>
-            <div class="content-box">
-              <span class="meta-date">STEM Lab</span>
-              <h5>Inovasi Robotika IoT</h5>
-              <p>Pengembangan robot berbasis IoT oleh tim siswa.</p>
-            </div>
-          </div>
+        <div class="section-title text-center" data-aos="fade-up">
+          <h2>Karya & Ekstrakurikuler</h2>
+          <p>Dokumentasi pengembangan bakat dan inovasi siswa</p>
         </div>
 
-        <!-- Kartu 2 -->
-        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-seni">
-          <div class="elegant-card">
-            <div class="img-box">
-              <a href="assets/img/portfolio/ekskul-tari.webp" class="glightbox">
-                <img src="assets/img/portfolio/ekskul-tari.webp" alt="Tari">
-              </a>
-              <div class="overlay-badge">Budaya</div>
+        <div class="isotope-layout" data-default-filter="*" data-layout="fitRows" data-sort="original-order" data-aos="fade-up" data-aos-delay="100">
+          
+          <ul class="portfolio-filters isotope-filters filter-pills justify-content-center mb-5">
+            <li data-filter="*" class="filter-active">Tampilkan Semua</li>
+            <li data-filter=".filter-sains">Sains & Tech</li>
+            <li data-filter=".filter-seni">Seni & Olahraga</li>
+          </ul>
+
+          <div class="row g-4 isotope-container">
+            
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-sains">
+              <div class="elegant-card">
+                <div class="img-box">
+                  <a href="assets/img/portfolio/robotika.webp" class="glightbox">
+                    <img src="assets/img/portfolio/robotika.webp" alt="Robotika">
+                  </a>
+                  <div class="overlay-badge">Inovasi</div>
+                </div>
+                <div class="content-box">
+                  <span class="meta-date">STEM Lab</span>
+                  <h5>Inovasi Robotika IoT</h5>
+                  <p>Pengembangan robot berbasis IoT oleh tim siswa.</p>
+                </div>
+              </div>
             </div>
-            <div class="content-box">
-              <span class="meta-date">Art & Culture</span>
-              <h5>Seni Tari Tradisional</h5>
-              <p>Ekstrakurikuler pelestarian budaya daerah.</p>
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-seni">
+              <div class="elegant-card">
+                <div class="img-box">
+                  <a href="assets/img/portfolio/ekskul-tari.webp" class="glightbox">
+                    <img src="assets/img/portfolio/ekskul-tari.webp" alt="Tari">
+                  </a>
+                  <div class="overlay-badge">Budaya</div>
+                </div>
+                <div class="content-box">
+                  <span class="meta-date">Art & Culture</span>
+                  <h5>Seni Tari Tradisional</h5>
+                  <p>Ekstrakurikuler pelestarian budaya daerah.</p>
+                </div>
+              </div>
             </div>
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-sains">
+              <div class="elegant-card">
+                <div class="img-box">
+                  <a href="assets/img/portfolio/sains.webp" class="glightbox">
+                    <img src="assets/img/portfolio/sains.webp" alt="Sains">
+                  </a>
+                  <div class="overlay-badge">Eksperimen</div>
+                </div>
+                <div class="content-box">
+                  <span class="meta-date">Science Project</span>
+                  <h5>Praktikum Sains</h5>
+                  <p>Metode pembelajaran berbasis eksperimen.</p>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
-
-        <!-- Kartu 3 -->
-        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-sains">
-          <div class="elegant-card">
-            <div class="img-box">
-              <a href="assets/img/portfolio/sains.webp" class="glightbox">
-                <img src="assets/img/portfolio/sains.webp" alt="Sains">
-              </a>
-              <div class="overlay-badge">Eksperimen</div>
-            </div>
-            <div class="content-box">
-              <span class="meta-date">Science Project</span>
-              <h5>Praktikum Sains</h5>
-              <p>Metode pembelajaran berbasis eksperimen.</p>
-            </div>
-          </div>
-        </div>
-
       </div>
-    </div>
-  </div>
-</section>
+    </section>
 
   </main>
 
-  <!-- Footer -->
   <footer id="footer" class="footer light-background">
     <div class="container footer-top">
       <div class="row gy-4">
@@ -251,7 +527,6 @@
   <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
   <div id="preloader"></div>
 
-  <!-- Vendor JS Files -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>
   <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
