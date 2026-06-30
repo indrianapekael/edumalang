@@ -7956,3 +7956,232 @@ body.portfolio-page {
   cursor: default; /* Kursor tetap berbentuk panah biasa, bukan tangan */
   color: color-mix(in srgb, var(--default-color), transparent 30%) !important; /* Mengunci warna asli */
 }
+
+/* ==========================================================================
+   Hero Dynamic Wave Background & Tab Filters
+   ========================================================================== */
+
+/* Hero Gradient & Wave Layout */
+.hero-dynamic.wave-bg {
+  position: relative;
+  background: linear-gradient(135deg, #0d6efd 0%, #0dcaf0 100%);
+  color: #ffffff;
+  padding: 120px 0 100px 0;
+  overflow: hidden;
+}
+
+.hero-dynamic.wave-bg h1 {
+  color: #ffffff;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.hero-dynamic.wave-bg p {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.1rem;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* Wave Animation Container */
+.wave-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.waves {
+  position: relative;
+  width: 100%;
+  height: 8vh;
+  margin-bottom: -7px;
+  min-height: 50px;
+  max-height: 100px;
+}
+
+/* Parallax Wave Animation */
+.parallax > use {
+  animation: move-forever 25s cubic-bezier(.55,.5,.45,.5) infinite;
+}
+.parallax > use:nth-child(1) { animation-delay: -2s; animation-duration: 7s; }
+.parallax > use:nth-child(2) { animation-delay: -3s; animation-duration: 10s; }
+.parallax > use:nth-child(3) { animation-delay: -4s; animation-duration: 13s; }
+.parallax > use:nth-child(4) { animation-delay: -5s; animation-duration: 20s; }
+
+@keyframes move-forever {
+  0% { transform: translate3d(-90px,0,0); }
+  100% { transform: translate3d(85px,0,0); }
+}
+
+/* Filter Tabs Styling & Active States */
+.portfolio-filters li,
+.filter-pills li {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* Base style for active tab */
+.portfolio-filters li.filter-active {
+  background-color: #0d6efd;
+  color: #ffffff;
+  border-radius: 5px;
+}
+
+/* Pill style for active tab in bottom section */
+.portfolio-filters.filter-pills li.filter-active {
+  border-radius: 50px;
+  background-color: #0d6efd;
+  color: #ffffff;
+}
+
+/* ==========================================================================
+   Hero Dynamic Wave Background & Tab Filters (Bentuk Lonjong/Tumpul)
+   ========================================================================== */
+
+/* Hero Gradient & Wave Layout */
+.hero-dynamic.wave-bg {
+  position: relative;
+  background: linear-gradient(135deg, #0d6efd 0%, #0dcaf0 100%);
+  color: #ffffff;
+  padding: 120px 0 100px 0;
+  overflow: hidden;
+}
+
+.hero-dynamic.wave-bg h1 {
+  color: #ffffff;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.hero-dynamic.wave-bg p {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.1rem;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* Wave Animation Container */
+.wave-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.waves {
+  position: relative;
+  width: 100%;
+  height: 8vh;
+  margin-bottom: -7px;
+  min-height: 50px;
+  max-height: 100px;
+}
+
+.parallax > use {
+  animation: move-forever 25s cubic-bezier(.55,.5,.45,.5) infinite;
+}
+.parallax > use:nth-child(1) { animation-delay: -2s; animation-duration: 7s; }
+.parallax > use:nth-child(2) { animation-delay: -3s; animation-duration: 10s; }
+.parallax > use:nth-child(3) { animation-delay: -4s; animation-duration: 13s; }
+.parallax > use:nth-child(4) { animation-delay: -5s; animation-duration: 20s; }
+
+@keyframes move-forever {
+  0% { transform: translate3d(-90px,0,0); }
+  100% { transform: translate3d(85px,0,0); }
+}
+
+/* Filter Tabs Styling (Modern & Lonjong) */
+.filters-wrapper {
+  margin-bottom: 40px;
+}
+
+.portfolio-filters {
+  padding: 8px 10px;
+  margin: 0 auto;
+  list-style: none;
+  text-align: center;
+  background: #f4f7fc; /* Warna background tipis untuk membungkus tombol */
+  border-radius: 50px; /* Membuat kontainer berbentuk lonjong */
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 5px;
+}
+
+.portfolio-filters li {
+  cursor: pointer;
+  display: inline-block;
+  padding: 10px 24px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #444444;
+  background: transparent;
+  transition: all 0.3s ease-in-out;
+  border-radius: 50px; /* Bentuk tombol menjadi lonjong/tumpul */
+}
+
+.portfolio-filters li:hover {
+  color: #0d6efd;
+  background: rgba(13, 110, 253, 0.1);
+}
+
+.portfolio-filters li.filter-active {
+  background-color: #0d6efd;
+  color: #ffffff;
+  box-shadow: 0px 4px 15px rgba(13, 110, 253, 0.3); /* Tambahan efek bayangan halus saat aktif */
+}
+
+/* ==========================================================================
+   REVISI: Tab Filter Menjadi Butang Berasingan (Individu & Tidak Berkotak)
+   ========================================================================== */
+
+/* 1. Buang latar belakang penuh (full background) dari pembungkus tab */
+.portfolio-filters, 
+.portfolio-filters.filter-pills {
+  background: transparent !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  gap: 12px !important; /* Jarak antara butang */
+  border: none !important;
+}
+
+/* 2. Jadikan setiap tab sebagai butang individu berbentuk bujur (pill-shaped) */
+.portfolio-filters li,
+.portfolio-filters.filter-pills li {
+  background: #ffffff !important;
+  border: 1px solid rgba(14, 165, 233, 0.2) !important;
+  border-radius: 50px !important; /* Membuatnya berbentuk bujur sempurna (tidak kotak) */
+  padding: 10px 24px !important;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05) !important;
+  margin: 0 !important;
+  transition: all 0.3s ease !important;
+  display: inline-block !important;
+  color: #444444 !important;
+}
+
+/* 3. Kesan apabila kursor diletakkan di atas butang (Hover State) */
+.portfolio-filters li:hover,
+.portfolio-filters.filter-pills li:hover {
+  background: rgba(14, 165, 233, 0.08) !important;
+  color: #0ea5e9 !important;
+  transform: translateY(-3px) !important;
+  box-shadow: 0 6px 15px rgba(14, 165, 233, 0.15) !important;
+  border-color: rgba(14, 165, 233, 0.4) !important;
+}
+
+/* 4. Gaya untuk tab yang sedang aktif (Active State) */
+.portfolio-filters li.filter-active,
+.portfolio-filters.filter-pills li.filter-active {
+  background-color: #0ea5e9 !important;
+  color: #ffffff !important;
+  border-color: #0ea5e9 !important;
+  box-shadow: 0px 6px 18px rgba(14, 165, 233, 0.4) !important;
+  border-radius: 50px !important;
+  transform: translateY(0) !important;
+}
+
