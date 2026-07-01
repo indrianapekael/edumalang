@@ -7349,7 +7349,7 @@ body.portfolio-page {
 /* --- Hero Section PPDB --- */
 .ppdb-hero {
   padding: 140px 0 80px;
-  background: linear-gradient(135deg, rgba(241, 245, 249, 0.95) 0%, rgba(224, 242, 254, 0.95) 100%), 
+  background: linear-gradient(135deg, rgba(241, 245, 249, 0.66) 0%, rgba(224, 242, 254, 0.95) 100%), 
               url('../img/hero/gedung-sekolah.webp') center center / cover no-repeat;
   position: relative;
   overflow: hidden;
@@ -7696,7 +7696,7 @@ body.portfolio-page {
 /* --- Hero Section Minimalist Type --- */
 .institusi-hero {
   padding: 130px 0 60px;
-  background: linear-gradient(135deg, #ffffff 0%, color-mix(in srgb, var(--accent-color), transparent 93%) 100%);
+  background: linear-gradient(135deg, #ffffffa9 0%, color-mix(in srgb, var(--accent-color), transparent 93%) 100%);
   border-bottom: 1px solid color-mix(in srgb, var(--default-color), transparent 92%);
 }
 
@@ -8185,3 +8185,611 @@ body.portfolio-page {
   transform: translateY(0) !important;
 }
 
+/* ========================================================
+   CUSTOM CSS - UPDATE TAMPILAN PAGE ABOUT (CERAH & PEKAT)
+   ======================================================== */
+
+/* 1. Pemisahan Properti Gambar ke HTML & Overlay Cerah ke CSS */
+.about-banner-bg {
+    position: relative;
+    padding: 120px 0 160px 0 !important;
+    background-position: center center !important;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+    overflow: hidden;
+    border-bottom: none;
+}
+
+/* Membuat Lapisan Overlay Cerah Transparan di Atas Gambar Latar Belakang */
+.about-banner-bg::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.73);
+    z-index: 1;
+}
+
+/* Memastikan susunan tumpukan konten teks berada di atas overlay ::before */
+.about-banner-bg .z-3 {
+    position: relative;
+    z-index: 3 !important;
+}
+
+.about-banner-bg h1 {
+    color: var(--heading-color) !important;
+}
+
+.about-banner-bg p,
+.about-banner-bg .breadcrumb-item,
+.about-banner-bg .breadcrumb-item a {
+    color: color-mix(in srgb, var(--default-color), transparent 20%) !important;
+}
+
+.about-banner-bg .breadcrumb-item.active {
+    color: var(--accent-color) !important;
+}
+
+.about-banner-bg .breadcrumb-item + .breadcrumb-item::before {
+    color: color-mix(in srgb, var(--default-color), transparent 50%) !important;
+}
+
+/* 2. Animasi Gelombang Bergerak di Bawah Banner */
+.wave-container-about {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    z-index: 3;
+}
+
+.waves-about {
+    position: relative;
+    width: 100%;
+    height: 10vh;
+    margin-bottom: -7px;
+    min-height: 80px;
+    max-height: 120px;
+}
+
+.parallax-about > use {
+    animation: move-forever-about 25s cubic-bezier(.55,.5,.45,.5) infinite;
+}
+.parallax-about > use:nth-child(1) { animation-delay: -2s; animation-duration: 7s; }
+.parallax-about > use:nth-child(2) { animation-delay: -3s; animation-duration: 10s; }
+.parallax-about > use:nth-child(3) { animation-delay: -4s; animation-duration: 13s; }
+.parallax-about > use:nth-child(4) { animation-delay: -5s; animation-duration: 20s; }
+
+@keyframes move-forever-about {
+    0% { transform: translate3d(-90px,0,0); }
+    100% { transform: translate3d(85px,0,0); }
+}
+
+/* 3. Efek Gradasi Blur Warna pada Penampang Section Background (Lebih Pekat) */
+.blur-section {
+    position: relative;
+    overflow: hidden;
+}
+
+.blur-section > .container {
+    position: relative;
+    z-index: 2;
+}
+
+.blur-blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.85;
+    animation: float-blob 12s ease-in-out infinite alternate;
+}
+
+/* Variasi Distribusi Warna Gradasi Latar Belakang Section */
+.blob-blue {
+    background-color: rgba(14, 165, 233, 0.4); 
+    width: 450px;
+    height: 450px;
+    top: -5%;
+    left: -10%;
+}
+
+.blob-purple {
+    background-color: rgba(112, 163, 245, 0.35); 
+    width: 400px;
+    height: 400px;
+    bottom: -10%;
+    right: -5%;
+    animation-delay: -3s;
+}
+
+.blob-green {
+    background-color: rgba(50, 162, 254, 0.3); 
+    width: 550px;
+    height: 550px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation-direction: alternate-reverse;
+}
+
+@keyframes float-blob {
+    0% { transform: scale(1) translate(0, 0); }
+    100% { transform: scale(1.15) translate(40px, -30px); }
+}
+
+/* ========================================================
+   CUSTOM CSS - HALAMAN PROGRAM (GRADASI BIRU & ANIMASI)
+   ======================================================== */
+
+/* 1. Header Banner Halaman Program */
+.program-banner-bg {
+    position: relative;
+    padding: 100px 0 160px 0 !important; /* Memberikan ruang ekstra di bawah untuk gelombang */
+    /* Warna gradasi biru yang mulus */
+    background: linear-gradient(-45deg, #0ea5e9, #3b82f6, #0284c7, #38bdf8);
+    background-size: 400% 400%;
+    /* Animasi pergerakan gradasi */
+    animation: gradientBGProgram 12s ease infinite;
+    overflow: hidden;
+    border-bottom: none !important;
+}
+
+/* Keyframes untuk menggerakkan background gradasi secara perlahan */
+@keyframes gradientBGProgram {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Ubah warna pemisah breadcrumb agar serasi di atas background biru */
+.program-banner-bg .breadcrumb-item + .breadcrumb-item::before {
+    color: rgba(255, 255, 255, 0.6) !important;
+}
+
+/* 2. Animasi Gelombang Bergerak di Bawah Banner Program */
+.wave-container-program {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    z-index: 2;
+}
+
+.waves-program {
+    position: relative;
+    width: 100%;
+    height: 10vh;
+    margin-bottom: -7px; /* Fix gap/celah putih di bawah gelombang */
+    min-height: 80px;
+    max-height: 120px;
+}
+
+/* Animasi bergeraknya gelombang kiri-kanan */
+.parallax-program > use {
+    animation: move-forever-program 25s cubic-bezier(.55,.5,.45,.5) infinite;
+}
+.parallax-program > use:nth-child(1) { animation-delay: -2s; animation-duration: 7s; }
+.parallax-program > use:nth-child(2) { animation-delay: -3s; animation-duration: 10s; }
+.parallax-program > use:nth-child(3) { animation-delay: -4s; animation-duration: 13s; }
+.parallax-program > use:nth-child(4) { animation-delay: -5s; animation-duration: 20s; }
+
+@keyframes move-forever-program {
+    0% { transform: translate3d(-90px,0,0); }
+    100% { transform: translate3d(85px,0,0); }
+}
+
+/* Pastikan jika section blob blur belum ada di CSS Anda, ia dirender dengan baik */
+/* (Jika sudah di-copy dari revisi sebelumnya, tidak perlu khawatir, kelas ini digunakan bersama) */
+.blur-section {
+    position: relative;
+    overflow: hidden;
+}
+
+.blur-section > .container {
+    position: relative;
+    z-index: 2;
+}
+
+.blur-blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.85;
+    animation: float-blob 12s ease-in-out infinite alternate;
+}
+
+.blob-blue {
+    background-color: rgba(14, 165, 233, 0.4); 
+    width: 450px;
+    height: 450px;
+    top: -5%;
+    left: -10%;
+}
+
+.blob-purple {
+    background-color: rgba(112, 163, 245, 0.35); 
+    width: 400px;
+    height: 400px;
+    bottom: -10%;
+    right: -5%;
+    animation-delay: -3s;
+}
+
+.blob-green {
+    background-color: rgba(50, 162, 254, 0.3); 
+    width: 550px;
+    height: 550px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation-direction: alternate-reverse;
+}
+
+@keyframes float-blob {
+    0% { transform: scale(1) translate(0, 0); }
+    100% { transform: scale(1.15) translate(40px, -30px); }
+}
+
+/* ========================================================
+   1. Animasi Teks Gradasi (Judul Hero)
+   ======================================================== */
+.animated-gradient-text {
+  background: linear-gradient(270deg, #0d6efd, #0dcaf0, #0a58ca, #0d6efd);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  animation: gradientFlow 5s ease infinite;
+}
+
+@keyframes gradientFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ========================================================
+   2. Efek Gradasi Biru Blur yang Menyatu Antar Section
+   ======================================================== */
+.blur-bg-wrapper {
+  position: relative;
+  background-color: transparent;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.blur-bg-wrapper::before {
+  content: "";
+  position: absolute;
+  width: 50vw;
+  height: 50vw;
+  max-width: 600px;
+  max-height: 600px;
+  background: radial-gradient(circle, rgba(13, 110, 253, 0.12) 0%, rgba(13, 202, 240, 0.05) 50%, transparent 70%);
+  filter: blur(80px);
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Posisi sebaran blur di masing-masing section agar terlihat menyatu (flow) */
+.tokoh-hero::before {
+  top: -10%;
+  left: 20%;
+}
+
+.tokoh-utama-wrapper::before {
+  bottom: -20%;
+  right: -10%;
+  background: radial-gradient(circle, rgba(13, 202, 240, 0.1) 0%, rgba(13, 110, 253, 0.08) 50%, transparent 70%);
+}
+
+.inspirator-section::before {
+  top: 30%;
+  left: -20%;
+}
+
+/* Pastikan konten utama berada di atas efek blur */
+.blur-bg-wrapper .container {
+  position: relative;
+  z-index: 2;
+}
+
+/* ========================================================
+   3. Penyesuaian Ukuran Card "Featured"
+   ======================================================== */
+/* Memaksa card agar memiliki tinggi proporsional menggunakan flexbox */
+.match-height-row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.team-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Override sifat 'featured' bawaan yang biasa membuatnya lebih besar (scale / padding berlebih) */
+.team-card.featured {
+  transform: none !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  box-shadow: 0px 4px 20px rgba(13, 110, 253, 0.1) !important; /* Pertahankan bayangan biru jika ada */
+}
+
+/* Memastikan konten info memiliki padding seragam */
+.team-card .member-info {
+  flex-grow: 1;
+}
+
+/* ========================================================
+   4. Animasi Latar Belakang Gradasi Biru Terang (Banner/Hero)
+   ======================================================== */
+.animated-banner {
+  /* Menggunakan kombinasi cyan, biru langit, cerulean, dan biru standar (Tanpa Biru Pekat) */
+  background: linear-gradient(-45deg, #48b4e6, #48a3e4, #0081c7, #0D6EFD);
+  background-size: 400% 400%;
+  animation: bannerGradientFlow 12s ease infinite; /* Kecepatan diperlambat sedikit agar lebih smooth */
+  position: relative;
+  z-index: 1;
+}
+
+/* Menyesuaikan badge agar menyatu dengan background cerah */
+.animated-banner .hero-badge {
+  background: rgba(255, 255, 255, 0.25) !important;
+  border-color: rgba(255, 255, 255, 0.4) !important;
+  color: #ffffff !important;
+  backdrop-filter: blur(5px);
+}
+
+/* Mengatur warna teks deskripsi agar tetap kontras dan nyaman dibaca */
+.animated-banner p {
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+/* Keyframes untuk pergerakan halus gradasi warna */
+@keyframes bannerGradientFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ========================================================
+   1. Banner Hero: Animasi Gradasi Biru Terang (Tanpa Biru Pekat)
+   ======================================================== */
+.animated-banner {
+  background: linear-gradient(-45deg, #0DCAF0, #48CAE4, #0096C7, #0D6EFD);
+  background-size: 400% 400%;
+  animation: bannerGradientFlow 12s ease infinite;
+  position: relative;
+  overflow: hidden;
+  padding-bottom: 140px !important; /* Ruang ekstra untuk menampung gelombang */
+  z-index: 1;
+}
+
+.animated-banner .hero-badge {
+  background: rgba(255, 255, 255, 0.25) !important;
+  border-color: rgba(255, 255, 255, 0.4) !important;
+  color: #ffffff !important;
+  backdrop-filter: blur(5px);
+}
+
+.animated-banner p {
+  color: rgba(255, 255, 255, 0.95) !important;
+}
+
+@keyframes bannerGradientFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ========================================================
+   2. REVISI UTAMA: Struktur & Animasi Bergerak Bergelombang (Wave)
+   ======================================================== */
+.wave-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  z-index: 2;
+}
+
+.waves {
+  position: relative;
+  width: 100%;
+  height: 12vh;
+  min-height: 80px;
+  max-height: 150px;
+}
+
+/* Penerapan Efek Gerak Multi-Layer Parallax */
+.parallax > use {
+  animation: move-forever 20s cubic-bezier(.55, .5, .45, .5) infinite;
+}
+
+/* Gelombang 1 (Lapisan Paling Belakang) */
+.parallax > use:nth-child(1) {
+  animation-delay: -2s;
+  animation-duration: 7s;
+}
+
+/* Gelombang 2 */
+.parallax > use:nth-child(2) {
+  animation-delay: -3s;
+  animation-duration: 10s;
+}
+
+/* Gelombang 3 */
+.parallax > use:nth-child(3) {
+  animation-delay: -4s;
+  animation-duration: 13s;
+}
+
+/* Gelombang 4 (Lapisan Depan - Menutup Sempurna ke Section Berikutnya) */
+.parallax > use:nth-child(4) {
+  animation-delay: -5s;
+  animation-duration: 18s;
+}
+
+/* Keyframe Pergerakan Horizontal Gelombang */
+@keyframes move-forever {
+  0% {
+    transform: translate3d(-90px, 0, 0);
+  }
+  100% { 
+    transform: translate3d(85px, 0, 0);
+  }
+}
+
+/* ========================================================
+   3. Background Gradasi Biru Blur (Section Bawah)
+   ======================================================== */
+.blur-bg-wrapper {
+  position: relative;
+  background-color: transparent;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.blur-bg-wrapper::before {
+  content: "";
+  position: absolute;
+  width: 50vw;
+  height: 50vw;
+  max-width: 600px;
+  max-height: 600px;
+  background: radial-gradient(circle, rgba(13, 110, 253, 0.1) 0%, rgba(13, 202, 240, 0.04) 50%, transparent 70%);
+  filter: blur(80px);
+  z-index: -1;
+  pointer-events: none;
+}
+
+.tokoh-utama-wrapper::before {
+  bottom: -20%;
+  right: -10%;
+}
+
+.inspirator-section::before {
+  top: 30%;
+  left: -20%;
+}
+
+/* ========================================================
+   4. Penyamaan Tinggi & Reset Ukuran Card Dewan Pimpinan
+   ======================================================== */
+.match-height-row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.team-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.team-card.featured {
+  transform: none !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  box-shadow: 0px 4px 20px rgba(13, 110, 253, 0.08) !important;
+}
+
+.team-card .member-info {
+  flex-grow: 1;
+}
+
+/* 1. Menghilangkan garis (border) pada Badge di dalam Banner */
+.animated-banner .hero-badge {
+  background: rgba(255, 255, 255, 0.25) !important;
+  border: none !important; /* Menghilangkan garis luar/border */
+  color: #ffffff !important;
+  backdrop-filter: blur(5px);
+}
+
+/* 2. Menghilangkan garis (border) pada semua kotak Card (Dewan Pimpinan & Inspirator) */
+.team-card, .inspirator-card {
+  border: none !important;
+  outline: none !important;
+}
+
+/* 3. Mencegah munculnya garis celah tipis (glitch) di bawah animasi gelombang SVG */
+.wave-container {
+  position: absolute;
+  bottom: -1px; /* Ditarik ke bawah sedikit untuk menutupi garis celah */
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  z-index: 2;
+}
+
+.waves {
+  display: block; /* Mencegah spasi/garis kosong bawaan elemen inline */
+  position: relative;
+  width: 100%;
+  height: 12vh;
+  min-height: 80px;
+  max-height: 150px;
+}
+
+/* Menghilangkan garis pembatas pada bagian statistik */
+.stat-divider {
+  display: none !important;
+}
+
+/* ========================================================
+   5. Responsif Tampilan Mobile (Max-width 768px)
+      Membuat Profil Pengajar Inspiratif Lingkaran Sempurna
+   ======================================================== */
+@media (max-width: 768px) {
+  .inspirator-card {
+    flex-direction: column !important;
+    text-align: center;
+    padding: 30px 20px !important;
+  }
+
+  /* Mengunci container menjadi persegi sempurna lalu dibulatkan */
+  .inspirator-card .inspirator-img {
+    width: 180px !important;
+    height: 180px !important;
+    min-width: 180px !important;
+    min-height: 180px !important; /* Tambahan untuk mencegah lonjong vertikal */
+    max-width: 180px !important;  /* Tambahan untuk mencegah lonjong horizontal */
+    max-height: 180px !important; 
+    flex: 0 0 auto !important;    /* Mencegah flexbox merusak ukuran */
+    aspect-ratio: 1 / 1 !important; /* Memaksa bentuk persegi presisi */
+    margin: 0 auto 20px auto !important;
+    border-radius: 50% !important;
+    overflow: hidden !important;
+    position: relative; /* Menjaga posisi gambar */
+    box-shadow: 0 8px 25px rgba(13, 110, 253, 0.15);
+  }
+
+  /* Memastikan foto merespons ukuran container yang baru */
+  .inspirator-card .inspirator-img img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important; /* Memotong kelebihan tanpa membuat gepeng */
+    object-position: center !important; /* Fokus tepat di tengah wajah */
+  }
+}
