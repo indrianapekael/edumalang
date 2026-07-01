@@ -38,7 +38,6 @@
           <li><a href="about.html">Tentang</a></li>
           <li><a href="program.html">Program</a></li>
           <li><a href="galeri.html">Galeri</a></li>
-          <!-- Menu Tokoh Edukasi Dibuat Active -->
           <li><a href="tokoh.html" class="active">Tokoh Edukasi</a></li>
           <li class="dropdown"><a href="#"><span>Jenjang Pendidikan</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
             <ul>
@@ -57,34 +56,50 @@
 
   <main class="main">
 
-    <!-- Hero Section -->
-    <section class="tokoh-hero">
+    <!-- Hero Section / Banner dengan Animasi Gradasi & Gelombang Bergerak -->
+    <section class="tokoh-hero animated-banner">
       <div class="container" data-aos="zoom-in" data-aos-duration="1000">
         <div class="hero-badge"><i class="bi bi-person-hearts"></i> Inspirator Pendidikan</div>
-        <h1>Di Balik Ekosistem Edukasi</h1>
+        <h1 class="text-white">Di Balik Ekosistem Edukasi</h1>
         <p>Mengenal lebih dekat para pilar penting, pemimpin inovatif, dan tenaga pendidik berdedikasi yang terus menggerakkan roda kemajuan pendidikan di Kota Malang.</p>
+      </div>
+
+      <!-- Kontainer Objek Gelombang Bergerak (SVG) -->
+      <div class="wave-container">
+        <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+          viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+          <defs>
+            <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s58 18 88 18 58-18 88-18 58 18 88 18v44h-352z" />
+          </defs>
+          <g class="parallax">
+            <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255, 255, 255, 0.3)" />
+            <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255, 255, 255, 0.4)" />
+            <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255, 255, 255, 0.2)" />
+            <use xlink:href="#gentle-wave" x="48" y="7" fill="#ffffff" />
+          </g>
+        </svg>
       </div>
     </section>
 
-    <!-- Section 1: Dewan Pimpinan (Diambil dari Index) -->
-    <section id="team" class="team tokoh-utama-wrapper">
+    <!-- Section 1: Dewan Pimpinan -->
+    <section id="team" class="team tokoh-utama-wrapper blur-bg-wrapper">
       <div class="container section-title" data-aos="fade-up">
         <h2>Dewan Pimpinan & Komite</h2>
         <p>Pilar penting pengambil kebijakan di balik ekosistem edukasi unggul Kota Malang</p>
       </div>
       
       <div class="container" data-aos="fade-up" data-aos-delay="100">
-        <div class="row gy-5">
+        <div class="row gy-5 match-height-row">
 
-          <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
-            <div class="team-card">
+          <div class="col-lg-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="100">
+            <div class="team-card w-100">
               <div class="member-img">
                 <img src="assets/img/person/anggunly.webp" class="img-fluid" alt="Team Member">
                 <div class="social-overlay">
                   <div class="social-links">
-                    <a href="#" target="_blank"><i class="bi bi-twitter-x"></i></a>
-                    <a href="#" target="_blank"><i class="bi bi-linkedin"></i></a>
-                    <a href="#" target="_blank"><i class="bi bi-instagram"></i></a>
+                    <a href="https://twitter.com/anggunly" target="_blank"><i class="bi bi-twitter-x"></i></a>
+                    <a href="https://linkedin.com/in/anggunly" target="_blank"><i class="bi bi-linkedin"></i></a>
+                    <a href="https://instagram.com/anggunly" target="_blank"><i class="bi bi-instagram"></i></a>
                   </div>
                 </div>
               </div>
@@ -96,15 +111,15 @@
             </div>
           </div>
           
-          <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
-            <div class="team-card">
+          <div class="col-lg-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="200">
+            <div class="team-card w-100">
               <div class="member-img">
                 <img src="assets/img/person/hawaaa.webp" class="img-fluid" alt="Team Member">
                 <div class="social-overlay">
                   <div class="social-links">
-                    <a href="#" target="_blank"><i class="bi bi-twitter-x"></i></a>
-                    <a href="#" target="_blank"><i class="bi bi-linkedin"></i></a>
-                    <a href="#" target="_blank"><i class="bi bi-dribbble"></i></a>
+                    <a href="https://twitter.com/hawaaa" target="_blank"><i class="bi bi-twitter-x"></i></a>
+                    <a href="https://linkedin.com/in/hawaaa" target="_blank"><i class="bi bi-linkedin"></i></a>
+                    <a href="https://dribbble.com/hawaaa" target="_blank"><i class="bi bi-dribbble"></i></a>
                   </div>
                 </div>
               </div>
@@ -116,15 +131,15 @@
             </div>
           </div>
           
-          <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="team-card featured">
+          <div class="col-lg-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="300">
+            <div class="team-card featured w-100">
               <div class="member-img">
                 <img src="assets/img/person/indriana.webp" class="img-fluid" alt="Team Member">
                 <div class="social-overlay">
                   <div class="social-links">
-                    <a href="#" target="_blank"><i class="bi bi-twitter-x"></i></a>
-                    <a href="#" target="_blank"><i class="bi bi-github"></i></a>
-                    <a href="#" target="_blank"><i class="bi bi-linkedin"></i></a>
+                    <a href="https://twitter.com/indriana" target="_blank"><i class="bi bi-twitter-x"></i></a>
+                    <a href="https://github.com/indriana" target="_blank"><i class="bi bi-github"></i></a>
+                    <a href="https://linkedin.com/in/indriana" target="_blank"><i class="bi bi-linkedin"></i></a>
                   </div>
                 </div>
               </div>
@@ -136,15 +151,15 @@
             </div>
           </div>
           
-          <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
-            <div class="team-card">
+          <div class="col-lg-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="400">
+            <div class="team-card w-100">
               <div class="member-img">
                 <img src="assets/img/person/megameii.webp" class="img-fluid" alt="Team Member">
                 <div class="social-overlay">
                   <div class="social-links">
-                    <a href="#" target="_blank"><i class="bi bi-twitter-x"></i></a>
-                    <a href="#" target="_blank"><i class="bi bi-linkedin"></i></a>
-                    <a href="#" target="_blank"><i class="bi bi-behance"></i></a>
+                    <a href="https://twitter.com/megameii" target="_blank"><i class="bi bi-twitter-x"></i></a>
+                    <a href="https://linkedin.com/in/megameii" target="_blank"><i class="bi bi-linkedin"></i></a>
+                    <a href="https://behance.net/megameii" target="_blank"><i class="bi bi-behance"></i></a>
                   </div>
                 </div>
               </div>
@@ -185,7 +200,7 @@
     </section>
 
     <!-- Section 2: Pengajar Inspiratif -->
-    <section class="inspirator-section">
+    <section class="inspirator-section blur-bg-wrapper">
       <div class="container">
         
         <div class="section-title" data-aos="fade-up">
@@ -282,9 +297,8 @@
 
   </main>
 
-  <!-- Footer (Diambil dari Index) -->
+  <!-- Footer -->
   <footer id="footer" class="footer light-background">
-
     <div class="container footer-top">
       <div class="row gy-4">
         <div class="col-lg-3 col-md-6 footer-info">
@@ -292,7 +306,6 @@
             <span class="sitename">EduMalang</span>
           </a>
           <p>Portal informasi resmi satu pintu untuk memajukan standar pendidikan dan inisiatif edukasi di seluruh penjuru kota.</p>
-
           <div class="social-links d-flex mt-4">
             <a href="https://twitter.com/edumalang" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
             <a href="https://www.facebook.com/edumalang" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
@@ -311,7 +324,7 @@
           </ul>
         </div>
 
-       <div class="col-lg-2 col-md-6 footer-links">
+        <div class="col-lg-2 col-md-6 footer-links">
           <h4>Galeri Pendidikan</h4>
           <ul>
             <li><a href="galeri.html#fasilitas">Fasilitas</a></li>
@@ -355,7 +368,6 @@
         </div>
       </div>
     </div>
-
   </footer>
 
   <a href="https://wa.me/08876547892" class="wa-float" target="_blank" aria-label="Chat WhatsApp">
@@ -372,7 +384,6 @@
   <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
   <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  
   <script src="assets/js/main.js"></script>
 
 </body>
